@@ -4,6 +4,7 @@ pipeline:
     environment:
      - RAILS_ENV=test
     commands:
+      - apt-get install -y nodejs
       - bundle install
       - bundle exec rake db:create db:migrate
       - bundle exec rspec
