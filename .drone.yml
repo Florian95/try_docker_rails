@@ -12,8 +12,8 @@ pipeline:
       - bundle exec rake db:create db:migrate
       - bundle exec rspec
       
-services:
-  postgres:
+  database:
     image: postgres:9.4.5
+    detach: true
     environment:
       - POSTGRES_USER=postgres
