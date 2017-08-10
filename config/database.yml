@@ -1,0 +1,11 @@
+development: &default
+  adapter: postgresql
+  database: try_docker_rails_dev
+  min_messages: WARNING
+  pool: 5
+  username: postgres
+  host: db
+
+test:
+  <<: *default
+  database: try_docker_rails_test
