@@ -4,7 +4,7 @@ development: &default
   min_messages: WARNING
   pool: 5
   username: postgres
-  host: db
+  host: <%= ENV['POSTGRESQL_HOST'] || 'db' %>
 
 test:
   <<: *default
