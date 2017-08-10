@@ -9,7 +9,7 @@ pipeline:
       - apt-get install -y nodejs
       - bundle install --jobs 20 --retry 5 --path /tmp/bundler
       - bundle exec rake db:create db:migrate
-      - bundle exec test
+      - bundle exec rake test
   slack:
     image: plugins/slack
     webhook: https://hooks.slack.com/services/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
