@@ -7,6 +7,7 @@ pipeline:
       - bundle install
       - bundle exec rake db:create db:migrate
       - bundle exec rspec
+      
 services:
   postgres:
     image: postgres:9.4.5
