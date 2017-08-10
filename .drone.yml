@@ -14,6 +14,8 @@ pipeline:
     image: plugins/slack
     webhook: https://hooks.slack.com/services/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
     channel: delight
+    when:
+      status: [ success, failure ]
    
 cache:
   - /tmp/bundler
