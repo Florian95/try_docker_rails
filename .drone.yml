@@ -1,11 +1,14 @@
-image: ruby2.4.1
-env:
- - RAILS_ENV=test
-script:
-  - cp config/drone.database.yml config/database.yml
-  - bundle install
-  - psql -c 'create database test;' -U postgres -h 127.0.0.1
-  - bin/rake db:schema:load
-  - bin/rake test:all
+pipeline:
+  build:
+    image: ruby2.4.1
+    environment:
+     - RAILS_ENV=test
+    commands:
+      - bundle install
+      - bundle exec rake db:create db:migrate
+      - bundle exec rspec
 services:
-  - postgres
+  postgres:
+    image: postgres:9.4.5
+    environment:
+      - POSTGRES_USER=postgres
