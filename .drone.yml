@@ -10,6 +10,10 @@ pipeline:
       - bundle install --jobs 20 --retry 5 --path /tmp/bundler
       - bundle exec rake db:create db:migrate
       - bundle exec test
+  slack:
+    image: plugins/slack
+    webhook: https://hooks.slack.com/services/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
+    channel: delight
    
 cache:
   - /tmp/bundler
