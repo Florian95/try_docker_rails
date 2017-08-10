@@ -9,8 +9,6 @@ pipeline:
       - apt-get install -y nodejs
       - bundle install --jobs 20 --retry 5 --path /tmp/bundler
       - bundle exec rake db:create db:migrate
-  test:
-    commands:
       - bundle exec test
    
 cache:
