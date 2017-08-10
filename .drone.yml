@@ -3,7 +3,7 @@ pipeline:
     image: ruby:2.4.1
     environment:
      - RAILS_ENV=test
-     - POSTGRESQL_HOST=127.0.0.1
+     - POSTGRESQL_HOST=database
     commands:
       - apt-get update -qq
       - apt-get install -y build-essential
@@ -11,9 +11,9 @@ pipeline:
       - bundle install --jobs 20 --retry 5
       - bundle exec rake db:create db:migrate
       - bundle exec rspec
-      
+    
+services:
   database:
     image: postgres:9.4.5
-    detach: true
     environment:
       - POSTGRES_USER=postgres
