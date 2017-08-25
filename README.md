@@ -1,3 +1,3 @@
-# Try_docker_rails
+# Try docker rails
 
 Only for personnal testing.
