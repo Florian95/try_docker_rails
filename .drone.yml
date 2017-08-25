@@ -10,18 +10,6 @@ pipeline:
       - bundle install --jobs 20 --retry 5
       - bundle exec rake db:create db:migrate
       - bundle exec rake test
-  ecr:
-    image: plugins/ecr
-    repo: 767874247885.dkr.ecr.eu-west-1.amazonaws.com/delight
-    registry: 767874247885.dkr.ecr.eu-west-1.amazonaws.com
-    secrets: [ ecr_access_key, ecr_secret_key ]
-    region: eu-west-1
-  slack:
-    image: plugins/slack
-    webhook: https://hooks.slack.com/services/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
-    channel: delight
-    when:
-      status: [ success, failure ]
   
 services:
   database:
