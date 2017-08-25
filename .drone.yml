@@ -15,8 +15,8 @@ pipeline:
     commands:
       - apt-get update -qq
       - apt-get install -y nodejs
-      - bundle install --jobs 20 --retry 5
-      - bundle exec rake db:create db:migrate --path /drone/bundle --without "development production"
+      - bundle install --jobs 20 --retry 5 --path /drone/bundle --without "development production"
+      - bundle exec rake db:create db:migrate
       - bundle exec rake test
   ecr:
     image: plugins/ecr
