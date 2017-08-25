@@ -2,8 +2,8 @@ pipeline:
   build:
     image: ruby:2.4.1
     environment:
-     - RAILS_ENV=test
-     - POSTGRESQL_HOST=database
+      - RAILS_ENV=test
+      - POSTGRESQL_HOST=database
     commands:
       - apt-get update -qq
       - apt-get install -y nodejs
