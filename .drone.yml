@@ -16,8 +16,6 @@ pipeline:
     registry: 767874247885.dkr.ecr.eu-west-1.amazonaws.com
     secrets: [ ecr_access_key, ecr_secret_key ]
     region: eu-west-1
-    when:
-      status: [ success ]
   slack:
     image: plugins/slack
     webhook: https://hooks.slack.com/services/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
